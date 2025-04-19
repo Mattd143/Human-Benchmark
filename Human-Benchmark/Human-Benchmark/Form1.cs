@@ -15,6 +15,26 @@ namespace Human_Benchmark
         public Menu()
         {
             InitializeComponent();
+            this.test1 = null;
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            logo.Visible= false;
+            tytul.Visible= false;
+            button1.Visible= false;
+            label2.Visible = true;
+            button2.Visible= true;
+            button3.Visible = true;
+            button4.Visible = true;
+            button5.Visible = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.test1 = new Form2();
+            test1.ShowDialog();
         }
     }
 }

@@ -1,5 +1,7 @@
 # Human-Benchmark
 
+Zadanie 2. Laboratoria Organizacji Systemów Komputerowych
+
 Tematem zadania drugiego jest napisanie aplikacji uzależnionej od czasu. Jednym z zadań aplikacji ma być możliwie
 precyzyjny pomiar lub odmierzanie czasu. Wykorzystując dowolny język programowania dla komputerów w standardzie PC napisać
 aplikację spełniającą funkcję testera sprawności psychomotorycznej np. kandydatów na kierowców. Na aplikację powinna się składać

@@ -18,6 +18,8 @@ namespace Human_Benchmark
         private Timer zegar = new Timer();
         private Random rng = new Random();
         private bool zaszybko = false;
+        private List<double> wyniki = new List<double>();   // lista zawierajaca 10 ostatnich wynikow testu reakcji
+        private bool fazaszkolenia = true;
         
         public Form2()
         {
@@ -58,13 +60,32 @@ namespace Human_Benchmark
 
             if(stoper.IsRunning)
             {
-                stoper.Stop();          // mierzy czas po kliknieciu po zmianie koloru i wyswietla wynik
-                TimeSpan czasreakcji = stoper.Elapsed; 
-                label1.Font = new Font(label1.Font.FontFamily, 46);
-                label1.Text = $"Czas reakcji: {czasreakcji.TotalMilliseconds} ms";
+                if(fazaszkolenia == true)
+                {
+                    stoper.Stop();
+                    TimeSpan czasreakcjiszkolenie = stoper.Elapsed;
+                    label1.Font = new Font(label1.Font.FontFamily, 46);
+                    label1.Text = $"Czas reakcji: {czasreakcjiszkolenie.TotalMilliseconds} ms";
+                    label2.Visible= true;
+                    label2.Font = new Font(label2.Font.FontFamily, 22);
+                    label2.Text = "Bardzo dobrze, możesz przejść do właściwego testu, klikając przycisk";
+                    fazaszkolenia= false;
+
+                }
+                else
+                {
+                    stoper.Stop();          // mierzy czas po kliknieciu po zmianie koloru i wyswietla wynik
+                    TimeSpan czasreakcji = stoper.Elapsed;
+                    wyniki.Add(czasreakcji.TotalMilliseconds);
+                    if (wyniki.Count > 10)
+                    {
+                        wyniki.RemoveAt(0);
+                    }
+                    label1.Font = new Font(label1.Font.FontFamily, 46);
+                    label1.Text = $"Czas reakcji: {czasreakcji.TotalMilliseconds} ms";
+                }
+                   
             }
-
-
 
 
         }

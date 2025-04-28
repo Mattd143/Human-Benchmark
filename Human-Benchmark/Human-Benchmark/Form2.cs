@@ -21,6 +21,7 @@ namespace Human_Benchmark
         private List<double> wyniki = new List<double>();   // lista zawierajaca 15 ostatnich wynikow testu reakcji
         private bool fazaszkolenia = true;
         private int liczniktestu = 0;
+        private double sredniwynik = 0;
         
         public Form2()
         {
@@ -101,16 +102,23 @@ namespace Human_Benchmark
 
                 button1.Visible = false;
                 this.BackColor = Color.Blue;
+                
 
                 string tablicawynikow = "Czasy reakcji: \n";
-                for (int i = 0; i < wyniki.Count; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     tablicawynikow += $"{i + 1}. {wyniki[i]:0.00} ms\n";
-                }
+                    sredniwynik += wyniki[i];            // obliczanie sredniej wynikow
+                } 
+                sredniwynik = sredniwynik / 3;
 
                 label6.Visible = true;
                 label6.Text = tablicawynikow;
 
+                label7.Visible = true;
+                label7.Text = $"Średni wynik: {sredniwynik} ms";
+                
+                button2.Visible= true;
             }
 
 
@@ -123,6 +131,11 @@ namespace Human_Benchmark
             stoper.Reset();
             stoper.Start(); // rozpoczynamy pomiar czasu
             
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)           // klikniecie przycisku statystyk
+        {
 
         }
     }

@@ -26,14 +26,31 @@ namespace Human_Benchmark
         public Form2()
         {
             InitializeComponent();
-
+            SetupChart();
             zegar.Tick += timer1_Tick;
         }
 
+        private void SetupChart()         // wykres kolumnowy
+        {
+            chart1.Series.Clear();     // usuwa domyslne serie
+            chart1.ChartAreas.Clear();
+
+            chart1.ChartAreas.Add(new System.Windows.Forms.DataVisualization.Charting.ChartArea("MainArea"));   // dodaje obszar wykresu
+
+            var series = new System.Windows.Forms.DataVisualization.Charting.Series("Twoje wyniki");  // dodaje serię danych
+            series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column; // kolumnowy
+            chart1.Series.Add(series);
+
+        }
+        
+        
+        
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
+
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -116,7 +133,7 @@ namespace Human_Benchmark
                 label6.Text = tablicawynikow;
 
                 label7.Visible = true;
-                label7.Text = $"Średni wynik: {sredniwynik} ms";
+                label7.Text = $"Średni wynik: {sredniwynik:0.00} ms";
                 
                 button2.Visible= true;
             }
@@ -134,7 +151,35 @@ namespace Human_Benchmark
 
         }
 
-        private void button2_Click(object sender, EventArgs e)           // klikniecie przycisku statystyk
+        private void button2_Click(object sender, EventArgs e)           // klikniecie przycisku statystyk powinno prezentowac jak poszczegolne nasze testy wypadaly na wykresie srednich wynikow
+        {
+            label8.Visible = true;
+            label1.Visible = true;
+            label1.Font = new Font(label1.Font.FontFamily, 36);
+            label1.Text = $"Twój średni wynik: {sredniwynik:0.00} ms";
+            label2.Visible = false;
+            label3.Visible = false;
+            label4.Visible = false;
+            label5.Visible = false;
+            label6.Visible = false;
+            label7.Visible = false;
+            button2.Enabled = false;
+
+            chart1.Visible = true;
+            var series = chart1.Series["Twoje wyniki"];
+            series.Points.Clear(); // wyczyść stare dane
+
+            series.Points.AddXY(0, 273);
+            series.Points[0].Color = Color.Green;
+
+            for (int i = 0; i < wyniki.Count; i++)
+            {
+                series.Points.AddXY(i + 1, wyniki[i]);
+            }
+
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
         {
 
         }

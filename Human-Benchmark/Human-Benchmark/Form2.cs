@@ -18,8 +18,9 @@ namespace Human_Benchmark
         private Timer zegar = new Timer();
         private Random rng = new Random();
         private bool zaszybko = false;
-        private List<double> wyniki = new List<double>();   // lista zawierajaca 10 ostatnich wynikow testu reakcji
+        private List<double> wyniki = new List<double>();   // lista zawierajaca 15 ostatnich wynikow testu reakcji
         private bool fazaszkolenia = true;
+        private int liczniktestu = 0;
         
         public Form2()
         {
@@ -37,6 +38,8 @@ namespace Human_Benchmark
         {
             label2.Visible = false;
             label3.Visible= false;
+            label4.Visible= false;
+            label5.Visible= false;
             if (zaszybko == true)     // warunek ktory wystepuje w przypadku zbyt szybkiego nacisniecia przycisku
             {
                 label1.Font = new Font(label1.Font.FontFamily, 18);
@@ -55,12 +58,12 @@ namespace Human_Benchmark
                 label1.Text = "Czekaj na zmianę koloru tła...";
              
             }
-            zaszybko=!zaszybko;
+            zaszybko=!zaszybko;   
 
 
             if(stoper.IsRunning)
             {
-                if(fazaszkolenia == true)
+                if(fazaszkolenia == true)         // czesc szkolenia
                 {
                     stoper.Stop();
                     TimeSpan czasreakcjiszkolenie = stoper.Elapsed;
@@ -72,19 +75,42 @@ namespace Human_Benchmark
                     fazaszkolenia= false;
 
                 }
-                else
+                else                        //  czesc wlasciwa testu
                 {
                     stoper.Stop();          // mierzy czas po kliknieciu po zmianie koloru i wyswietla wynik
                     TimeSpan czasreakcji = stoper.Elapsed;
                     wyniki.Add(czasreakcji.TotalMilliseconds);
-                    if (wyniki.Count > 10)
+                    if (wyniki.Count > 15)
                     {
                         wyniki.RemoveAt(0);
                     }
                     label1.Font = new Font(label1.Font.FontFamily, 46);
                     label1.Text = $"Czas reakcji: {czasreakcji.TotalMilliseconds} ms";
+                    label5.Visible = true;
+                    liczniktestu++;
                 }
                    
+            }
+
+            if(liczniktestu == 3)   // zakonczenie czesci wlasciwej testu
+            {
+                label2.Visible = true;
+                label5.Visible= false;
+                label2.Font = new Font(label1.Font.FontFamily, 40);
+                label2.Text = "Zakończenie testu reakcji optycznej!";
+
+                button1.Visible = false;
+                this.BackColor = Color.Blue;
+
+                string tablicawynikow = "Czasy reakcji: \n";
+                for (int i = 0; i < wyniki.Count; i++)
+                {
+                    tablicawynikow += $"{i + 1}. {wyniki[i]:0.00} ms\n";
+                }
+
+                label6.Visible = true;
+                label6.Text = tablicawynikow;
+
             }
 
 

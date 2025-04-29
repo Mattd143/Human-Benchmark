@@ -15,8 +15,7 @@ namespace Human_Benchmark
     public partial class Form3 : Form
     {
 
-        private bool zaszybko = true;
-        private char kolor = 'a';
+        private bool zaszybko = false;
         private Stopwatch stoper = new Stopwatch();
         private Timer zegar = new Timer();
         private Random rng = new Random();
@@ -24,6 +23,7 @@ namespace Human_Benchmark
         private List<double> wyniki = new List<double>();   // lista zawierajaca 15 ostatnich wynikow testu reakcji
         private int liczniktestu = 0;
         private double sredniwynik = 0;
+        private int zmianakoloru = 0;
 
         public Form3()
         {
@@ -50,6 +50,7 @@ namespace Human_Benchmark
 
             
             this.BackColor = Color.Red;
+            zmianakoloru = rng.Next(1, 4);
             int opoznienie = rng.Next(200, 10001); // po losowym czasie w zakresie od 2 do 10 sekund zmieni sie kolor tla
             zegar.Interval = opoznienie;  // zegar otrzymuje informacje ile czasu ma dzialac
             zegar.Start();  // rozpoczynamy odliczanie
@@ -66,31 +67,46 @@ namespace Human_Benchmark
             Button przycisk = (Button)sender; // jezeli wcisniemy przycisk to wywola funkcje przez sendera i dzieki temu okreslimy ktory z nich zostal wcisniety
             if (przycisk.Name == "przyciskZielony")
             {
-                kolor = 'z';
+                if (zmianakoloru != 1)
+                {
+                    zaszybko = true;
+                }
+                
             }
             else if (przycisk.Name == "przyciskPomarancz")
             {
-                kolor = 'p';
+                if (zmianakoloru != 2)
+                {
+                    zaszybko = true;
+                }
+
             }
             else if (przycisk.Name == "przyciskZolty")
             {
-                kolor = 'ż';
+                if (zmianakoloru != 3)
+                {
+                    zaszybko = true;
+                }
+
             }
             else if (przycisk.Name == "przyciskNiebieski")
             {
-                kolor = 'n';
+                if (zmianakoloru != 4)
+                {
+                    zaszybko = true;
+                }
             }
 
             if (zaszybko == true)
             {
-                label1.Font = new Font(label1.Font.FontFamily, 20);
-                label1.Text = "    Za szybko! Kliknij w przycisk ponów, żeby spróbować ponownie.";
+                label1.Font = new Font(label1.Font.FontFamily, 18);
+                label1.Text = "Za szybko, bądź błędny kolor! Kliknij w przycisk ponów, żeby spróbować ponownie.";
                 zegar.Stop();
                 button1.Visible = true;
                 button1.Text = "Ponów";
             }
             
-            if(stoper.IsRunning)
+            if(stoper.IsRunning && zaszybko == false)
             {
                 button1.Visible = true;
                 button1.Text = "Kontynuuj";
@@ -100,7 +116,7 @@ namespace Human_Benchmark
                     stoper.Stop();
                     TimeSpan czasreakcjiszkolenie = stoper.Elapsed;
                     label1.Font = new Font(label1.Font.FontFamily, 46);
-                    label1.Text = $"Czas reakcji: {czasreakcjiszkolenie.TotalMilliseconds} ms";
+                    label1.Text = $"  Czas reakcji: {czasreakcjiszkolenie.TotalMilliseconds} ms";
                     label2.Visible = true;
                     label2.Font = new Font(label2.Font.FontFamily, 20);
                     label2.Text = " Bardzo dobrze, możesz przejść do właściwego testu, klikając przycisk kontynuuj";
@@ -121,6 +137,7 @@ namespace Human_Benchmark
                 }
                 
             }
+            zaszybko = !zaszybko;
 
             if (liczniktestu == 3)  // zakonczenie czesci wlasciwej testu
             {
@@ -155,7 +172,23 @@ namespace Human_Benchmark
         private void timer1_Tick(object sender, EventArgs e)
         {
             zegar.Stop();
-            this.BackColor = Color.Green;
+            zaszybko = !zaszybko;
+            switch (zmianakoloru)
+            {
+                case 1:
+                    this.BackColor = Color.Green;
+                break;
+                case 2:
+                    this.BackColor = Color.DarkOrange;
+                break;
+                case 3:
+                    this.BackColor = Color.Gold;
+                break;
+                case 4:
+                    this.BackColor = Color.Blue;
+                break;
+
+            }
             stoper.Reset();
             stoper.Start(); // rozpoczynamy pomiar czasu
         }

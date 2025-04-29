@@ -40,7 +40,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -159,25 +158,12 @@
             this.label4.Text = "label4";
             this.label4.Visible = false;
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Gold;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.Location = new System.Drawing.Point(567, 711);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(192, 46);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Statystyki";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Visible = false;
-            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(1366, 758);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.przyciskNiebieski);
@@ -206,6 +192,5 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
     }
 }

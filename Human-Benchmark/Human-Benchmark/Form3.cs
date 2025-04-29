@@ -15,7 +15,7 @@ namespace Human_Benchmark
     public partial class Form3 : Form
     {
 
-        private bool zaszybko = false;
+        private bool blad = false;
         private Stopwatch stoper = new Stopwatch();
         private Timer zegar = new Timer();
         private Random rng = new Random();
@@ -69,7 +69,7 @@ namespace Human_Benchmark
             {
                 if (zmianakoloru != 1)
                 {
-                    zaszybko = true;
+                    blad = true;
                 }
                 
             }
@@ -77,7 +77,7 @@ namespace Human_Benchmark
             {
                 if (zmianakoloru != 2)
                 {
-                    zaszybko = true;
+                    blad = true;
                 }
 
             }
@@ -85,7 +85,7 @@ namespace Human_Benchmark
             {
                 if (zmianakoloru != 3)
                 {
-                    zaszybko = true;
+                    blad = true;
                 }
 
             }
@@ -93,20 +93,20 @@ namespace Human_Benchmark
             {
                 if (zmianakoloru != 4)
                 {
-                    zaszybko = true;
+                    blad = true;
                 }
             }
 
-            if (zaszybko == true)
+            if (blad == true)
             {
                 label1.Font = new Font(label1.Font.FontFamily, 18);
                 label1.Text = "Za szybko, bądź błędny kolor! Kliknij w przycisk ponów, żeby spróbować ponownie.";
                 zegar.Stop();
                 button1.Visible = true;
                 button1.Text = "Ponów";
+                blad = !blad;
             }
-            
-            if(stoper.IsRunning && zaszybko == false)
+            else if(stoper.IsRunning && blad == false)
             {
                 button1.Visible = true;
                 button1.Text = "Kontynuuj";
@@ -135,9 +135,20 @@ namespace Human_Benchmark
                     label1.Text = $"  Czas reakcji: {czasreakcji.TotalMilliseconds} ms";
                     liczniktestu++;
                 }
+
                 
+
             }
-            zaszybko = !zaszybko;
+
+
+            
+            
+            
+              
+
+
+
+
 
             if (liczniktestu == 3)  // zakonczenie czesci wlasciwej testu
             {
@@ -149,7 +160,6 @@ namespace Human_Benchmark
                 przyciskZielony.Visible = false;
                 przyciskZolty.Visible = false;
                 button1.Visible= false;
-                button2.Visible = true;
                 this.BackColor = Color.Blue;
 
                 string tablicawynikow = "Czasy reakcji: \n";
@@ -172,7 +182,7 @@ namespace Human_Benchmark
         private void timer1_Tick(object sender, EventArgs e)
         {
             zegar.Stop();
-            zaszybko = !zaszybko;
+            
             switch (zmianakoloru)
             {
                 case 1:

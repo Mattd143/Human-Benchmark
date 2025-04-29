@@ -11,7 +11,7 @@
         public Form2 test1;
         public Form3 test2;
         public Form4 test3;
-        
+        public Form5 test4;
 
         private System.ComponentModel.IContainer components = null;
 
@@ -151,6 +151,7 @@
             this.button5.Text = "Złożony czas reakcji akustyczny";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Visible = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Menu
             // 

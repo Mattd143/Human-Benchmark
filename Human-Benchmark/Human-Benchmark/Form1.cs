@@ -49,5 +49,11 @@ namespace Human_Benchmark
             this.test3 = new Form4();
             test3.ShowDialog();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.test4 = new Form5();
+            test4.ShowDialog();
+        }
     }
 }

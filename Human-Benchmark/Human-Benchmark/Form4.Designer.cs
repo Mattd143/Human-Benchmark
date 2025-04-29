@@ -125,6 +125,10 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Podstawowy test reakcji akustycznej";
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;

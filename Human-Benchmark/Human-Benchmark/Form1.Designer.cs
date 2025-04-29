@@ -10,6 +10,7 @@
         public Menu menu;
         public Form2 test1;
         public Form3 test2;
+        public Form4 test3;
         
 
         private System.ComponentModel.IContainer components = null;
@@ -136,6 +137,7 @@
             this.button4.Text = "Czas reakcji akustyczny";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Visible = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 

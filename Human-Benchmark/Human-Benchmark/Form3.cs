@@ -202,5 +202,10 @@ namespace Human_Benchmark
             stoper.Reset();
             stoper.Start(); // rozpoczynamy pomiar czasu
         }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

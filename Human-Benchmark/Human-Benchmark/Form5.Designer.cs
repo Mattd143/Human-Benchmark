@@ -36,6 +36,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.Błędny = new System.Windows.Forms.Button();
+            this.Poprawny = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -73,6 +75,10 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Złożony test reakcji akustycznej";
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -97,12 +103,40 @@
             this.label3.Text = "label3";
             this.label3.Visible = false;
             // 
+            // Błędny
+            // 
+            this.Błędny.BackColor = System.Drawing.Color.Gold;
+            this.Błędny.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Błędny.Location = new System.Drawing.Point(871, 613);
+            this.Błędny.Name = "Błędny";
+            this.Błędny.Size = new System.Drawing.Size(192, 58);
+            this.Błędny.TabIndex = 24;
+            this.Błędny.Text = "Błędny";
+            this.Błędny.UseVisualStyleBackColor = false;
+            this.Błędny.Visible = false;
+            this.Błędny.Click += new System.EventHandler(this.Przyciski_Click);
+            // 
+            // Poprawny
+            // 
+            this.Poprawny.BackColor = System.Drawing.Color.Gold;
+            this.Poprawny.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Poprawny.Location = new System.Drawing.Point(399, 613);
+            this.Poprawny.Name = "Poprawny";
+            this.Poprawny.Size = new System.Drawing.Size(192, 58);
+            this.Poprawny.TabIndex = 25;
+            this.Poprawny.Text = "Poprawny";
+            this.Poprawny.UseVisualStyleBackColor = false;
+            this.Poprawny.Visible = false;
+            this.Poprawny.Click += new System.EventHandler(this.Przyciski_Click);
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(1450, 757);
+            this.Controls.Add(this.Poprawny);
+            this.Controls.Add(this.Błędny);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -110,6 +144,7 @@
             this.Controls.Add(this.label3);
             this.Name = "Form5";
             this.Text = "Złożony test reakcji akustycznej";
+            this.Click += new System.EventHandler(this.Przyciski_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,5 +158,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button Błędny;
+        private System.Windows.Forms.Button Poprawny;
     }
 }

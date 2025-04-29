@@ -117,17 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="dzwiek1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\guitar-string-fade-out-332451.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="dzwiek2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\notification-smooth-modern-stereo-332449.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="dzwiek3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pop-up-notify-smooth-modern-332448.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="dzwiek4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\stab-f-01-brvhrtz-224599.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Średni czas reakcji (mediana) wynosi 273 milisekundy, zgodnie z zebranych danych z strony humanbenchmark.com. 
+                 Oprócz pomiaru czasu reakcji, test ten jest uzależniony od opóźnienia komputera i monitora. 
+Użycie szybkiego komputera i monitora o niskim opóźnieniu/wysokiej liczbie klatek na sekundę poprawi wynik</value>
   </data>
 </root>

@@ -117,17 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="dzwiek1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\guitar-string-fade-out-332451.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Test polega na zmierzeniu złożonej reakcji optycznej użytkownika poprzez przeprowadzenie trzech 
+    testów, które będą polegały na jak najszybszym zdiagnozowaniu na jaki kolor zmieniło się tło.
+
+Po komunikacie tekstowym i zmianie koloru tła na czerwony tło po losowym czasie ponownie zmieni 
+swój kolor na jeden z czterech możliwych: niebieski, żółty, pomarańczowy, zielony. Użytkownik tak
+szybko jak będzie w stanie musi przycisnąć odpowiedni przycisk oznaczony jednym z czterech kolorów.
+                  
+                                                     Najpierw odbędzie się faza szkolenia</value>
   </data>
-  <data name="dzwiek2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\notification-smooth-modern-stereo-332449.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="dzwiek3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pop-up-notify-smooth-modern-332448.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="dzwiek4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\stab-f-01-brvhrtz-224599.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
+  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

@@ -9,6 +9,7 @@
 
         public Menu menu;
         public Form2 test1;
+        public Form3 test2;
         
 
         private System.ComponentModel.IContainer components = null;
@@ -121,6 +122,7 @@
             this.button3.Text = "Złożony czas reakcji optyczny";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Visible = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 

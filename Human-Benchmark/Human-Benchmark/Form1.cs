@@ -16,6 +16,7 @@ namespace Human_Benchmark
         {
             InitializeComponent();
             this.test1 = null;
+            this.test2 = null;
             
         }
 
@@ -35,6 +36,12 @@ namespace Human_Benchmark
         {
             this.test1 = new Form2();
             test1.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.test2 = new Form3();
+            test2.ShowDialog();
         }
     }
 }

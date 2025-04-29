@@ -62,22 +62,6 @@ namespace Human_Benchmark
                 int opoznienie = rng.Next(200, 10001); // po losowym czasie w zakresie od 2 do 10 sekund zmieni sie kolor tla
                 zegar.Interval = opoznienie;  // zegar otrzymuje informacje ile czasu ma dzialac
                 zegar.Start();  // rozpoczynamy odliczanie
-
-                switch (dzwiekwtescie){
-                    case 1:
-                        dzwiekpoprawny.Play();
-                        break;
-                    case 2:
-                        dzwiek2.Play();
-                        break;
-                    case 3:
-                        dzwiek3.Play();
-                        break;
-                    case 4:
-                        dzwiek4.Play();
-                        break;
-                }
-                 // puszcza randomowy dzwiek
             }
 
         }
@@ -87,6 +71,22 @@ namespace Human_Benchmark
             zegar.Stop();
             stoper.Reset();
             stoper.Start(); // rozpoczynamy pomiar czasu
+            switch (dzwiekwtescie)
+            {
+                case 1:
+                    dzwiekpoprawny.Play();
+                    break;
+                case 2:
+                    dzwiek2.Play();
+                    break;
+                case 3:
+                    dzwiek3.Play();
+                    break;
+                case 4:
+                    dzwiek4.Play();
+                    break;
+            }
+            // puszcza randomowy dzwiek
         }
 
         private void Przyciski_Click(object sender, EventArgs e)
@@ -105,7 +105,7 @@ namespace Human_Benchmark
                     {
                         TimeSpan czasreakcjiszkolenie = stoper.Elapsed;
                         label1.Font = new Font(label1.Font.FontFamily, 46);
-                        label1.Text = $"  Czas reakcji: {czasreakcjiszkolenie.TotalMilliseconds} ms";
+                        label1.Text = $"  Czas reakcji: {czasreakcjiszkolenie.TotalMilliseconds-400} ms";
                         label2.Visible = true;
                         label2.Font = new Font(label2.Font.FontFamily, 20);
                         label2.Text = " Bardzo dobrze, możesz przejść do właściwego testu, klikając przycisk kontynuuj";
@@ -116,13 +116,13 @@ namespace Human_Benchmark
                     else
                     {
                         TimeSpan czasreakcji = stoper.Elapsed;
-                        wyniki.Add(czasreakcji.TotalMilliseconds);
+                        wyniki.Add(czasreakcji.TotalMilliseconds-400);
                         if (wyniki.Count > 15)
                         {
                             wyniki.RemoveAt(0);
                         }
                         label1.Font = new Font(label1.Font.FontFamily, 46);
-                        label1.Text = $"  Czas reakcji: {czasreakcji.TotalMilliseconds} ms";
+                        label1.Text = $"  Czas reakcji: {czasreakcji.TotalMilliseconds - 400} ms";
                         liczniktestu++;
                     }
                     
@@ -135,7 +135,31 @@ namespace Human_Benchmark
                     button1.Text = "Ponów";
                 }
 
-                dzwiekwtescie = 0;
+                if (liczniktestu == 2)
+                {
+                    label2.Visible = true;
+                    label2.Font = new Font(label1.Font.FontFamily, 40);
+                    label2.Text = "    Zakończenie testu reakcji akustycznej!";
+                    button1.Visible = false;
+                    Poprawny.Visible = false;
+                    Błędny.Visible = false;
+
+                    string tablicawynikow = "Czasy reakcji: \n";
+                    for (int i = 0; i < 2; i++)
+                    {
+                        tablicawynikow += $"{i + 1}. {wyniki[i]:0.00} ms\n";
+                        sredniwynik += wyniki[i];            // obliczanie sredniej wynikow
+                    }
+                    sredniwynik = sredniwynik / 2;
+
+                    label3.Visible = true;
+                    label3.Text = tablicawynikow;
+
+                    label4.Visible = true;
+                    label4.Text = $"Średni wynik: {sredniwynik:0.00} ms";
+
+                    dzwiekwtescie = 0;
+                }
             }
             else if (przycisk.Name == "Błędny")
             {

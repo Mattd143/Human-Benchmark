@@ -122,7 +122,8 @@
 zostanie puszczony jeden z czterech dźwięków, jeśli pokrywa on się z komunikatem dźwiękowym, który 
      został puszczony jako pierwszy należy przycisnąć przycisk "Poprawny", w przeciwnym razie należy 
 przycisnąć przycisk "Błędny". Pierwszy test jest uznawany jako faza szkolenia i uzyskany czas nie będzie 
-         zapamiętany w obliczaniu średniego wyniku. Po fazie szkolenia nastąpią trzy testy właściwe.
+zapamiętany w obliczaniu średniego wyniku. Po fazie szkolenia należy dwa razy poprawnie zidentyfikować
+                                                                            oryginalny dźwięk.
                   
                                                            Najpierw odbędzie się faza szkolenia</value>
   </data>
